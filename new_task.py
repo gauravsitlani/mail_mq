@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import pika
 
@@ -6,7 +7,7 @@ channel = connection.channel()
 
 channel.queue_declare(queue='hello')
 
-message = ''.join(sys.argv[1:]) or "Hello People!"
+message = ' '.join(sys.argv[1:]) or "Hello People!"
 
 channel.basic_publish(exchange='',routing_key='hello',body=message)
 
